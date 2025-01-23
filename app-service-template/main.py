@@ -7,10 +7,30 @@ This acts sample code for creating and initializing a custom ApplicationService 
 import asyncio
 import os
 
+
+### OPENLEADR Libraries begin
+
+##  Dependencies
+"""
+Most dependencies are taken care of through pip install
+"""
+from datetime import timedelta
+
+##  Modules
+from openleadr.client import OpenADRClient
+from openleadr.server import OpenADRServer
+
+### OPENLEADR Libraries end
+
 from app_functions_sdk_py.functions import mqtt, filters
 from app_functions_sdk_py.factory import new_app_service
 from app_functions_sdk_py.utils.factory.mqtt import MQTTClientConfig
 
+#OPENLEADR Variables Initiated
+myOpenADRClient = OpenADRClient("CLIENT1", "127.0.0.1", False, "", "", "", "", True, "", True, "", False, True, 10, 300)
+myOpenADRServer = OpenADRServer("SERVER1", "", "", "", "", True, 8080, "127.0.0.1", "", "", "", "/OpenADR2/Simple/2.0b", timedelta(seconds=10), "", "", True, True)
+
+#OPENLEADR Instances end
 
 class MyApp:
     def __init__(self):
